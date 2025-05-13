@@ -10,7 +10,6 @@ stick1.on("startup", function () {
   console.log("startup stick1");
   attachSensors();
   function attachSensors() {
-
     // playerMap.slice(0,7).forEach((player, i) => {
     //   player.sensor.attach(i, player.deviceID);
     //   player.sensor.on("attached", () => {
@@ -19,9 +18,9 @@ stick1.on("startup", function () {
     // });
 
     sensor.attach(0, deviceID);
-    sensor.on("attached",() =>{
+    sensor.on("attached", () => {
       console.log("sensor attached");
-    })
+    });
   }
 });
 
@@ -37,10 +36,10 @@ function addHBEventListeners() {
   //     socket.emit("hbData", data);
   //   });
   // });
-  sensor.on("hbData",data =>{
-    console.log("hbData",data);
-    socket.emit("hbData",data);
-  })
+  sensor.on("hbData", (data) => {
+    console.log("hbData", data);
+    socket.emit("hbData", data);
+  });
 }
 
 if (!stick1.open()) {
