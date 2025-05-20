@@ -1,7 +1,7 @@
 const { io } = require("socket.io-client");
 const Ant = require("gd-ant-plus");
 
-const socket = io("http://192.168.11.182:3000");
+const socket = io("https://chess-api.buildarocket.com");
 
 var stick1 = new Ant.GarminStick2();
 let playerMap = [
