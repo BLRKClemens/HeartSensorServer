@@ -5,7 +5,7 @@ const socket = io("http://localhost:3000");
 let playerMap = [
   {
     playerName: "Nakamura",
-    deviceID: 4,
+    deviceID: 60311,
     fideID: 2016192,
   },
   {
@@ -50,10 +50,41 @@ let playerMap = [
   },
   {
     playerName: "Firouzja",
-    deviceID: 60311,
+    deviceID: 45,
     fideID: 12573981,
   },
+  {
+    playerName: "test1",
+    deviceID: 1,
+    fideID: 1,
+  },
+  {
+    playerName: "test2",
+    deviceID: 2,
+    fideID: 2,
+  },
+  {
+    playerName: "test3",
+    deviceID: 3,
+    fideID: 3,
+  },
+  {
+    playerName: "test4",
+    deviceID: 4,
+    fideID: 4,
+  },
+  {
+    playerName: "test5",
+    deviceID: 5,
+    fideID: 5,
+  },
+  {
+    playerName: "test7",
+    deviceID: 7,
+    fideID: 76,
+  },
 ];
+console.log(playerMap.length);
 
 socket.on("connect", () => {
   console.log("Connected to server with id: ", socket.id);
