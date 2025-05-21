@@ -1,5 +1,14 @@
 const { io } = require("socket.io-client");
 const Ant = require("gd-ant-plus");
+require("dotenv").config();
+
+DEVICE_ID = process.env.DEVICE_ID;
+if (!DEVICE_ID) {
+  console.log("please put device id in .env file");
+  process.exit(-1);
+}
+
+console.log("DEVICE_ID:", DEVICE_ID);
 
 const socket = io("https://chess-api.buildarocket.com");
 // const socket = io("http://192.168.178.20:3000");
@@ -24,11 +33,31 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
           player.sensor = new Ant.HeartRateSensor(stick);
         });
       }
+      function addHeartRateListener(player) {
+        player.sensor.on("hbData", (hbData) => {
+          console.log(
+            player.playerName,
+            hbData.DeviceID,
+            hbData.ComputedHeartRate
+          );
+          const data = {
+            playerData: { name: player.playerName, fideID: player.fideID },
+            DEVICE_ID,
+            hbData: hbData,
+          };
+          socket.emit("hbData", data);
+        });
+      }
       function attachFirstSensor(playerMapForStick) {
         playerMapForStick[0].sensor.attach(0, playerMapForStick[0].deviceID);
         addHeartRateListener(playerMapForStick[0]);
       }
       function attachRemainingSensors(playerMapForStick) {
+        function logAttachedMessage(playerMapForStick, previousIndex, i) {
+          console.log(
+            `${playerMapForStick[previousIndex].playerName} attached to slot ${previousIndex} of stick ${i}. device ID: ${playerMapForStick[previousIndex].deviceID} `
+          );
+        }
         function addAttachedListenerToLastSensor(
           playerMapForStick,
           previousIndex
@@ -37,11 +66,7 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
             logAttachedMessage(playerMapForStick, previousIndex, i);
           });
         }
-        function logAttachedMessage(playerMapForStick, previousIndex, i) {
-          console.log(
-            `${playerMapForStick[previousIndex].playerName} attached to slot ${previousIndex} of stick ${i}. device ID: ${playerMapForStick[previousIndex].deviceID} `
-          );
-        }
+
         playerMapForStick.slice(1).forEach((player, previousIndex) => {
           playerMapForStick[previousIndex].sensor.on("attached", () => {
             logAttachedMessage(playerMapForStick, previousIndex, i);
@@ -54,21 +79,7 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
           playerMapForStick.length - 1
         );
       }
-      function addHeartRateListener(player) {
-        player.sensor.on("hbData", (hbData) => {
-          console.log(
-            player.playerName,
-            hbData.DeviceID,
-            hbData.ComputedHeartRate
-          );
-          const data = {
-            playerData: { name: player.playerName, fideID: player.fideID },
-            laptopID: "Clemens",
-            hbData: hbData,
-          };
-          socket.emit("hbData", data);
-        });
-      }
+
       console.log("startup stick", i);
       const from = i * playerNumberPerStick;
       const to = i * playerNumberPerStick + playerNumberPerStick;
@@ -81,9 +92,19 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
     }
     function createNewStick(sticks, i) {
       function openStick(stick) {
-        const cancellationToken = stick.openAsync((err) => {
-          if (err) console.log("stick could not be opened!", err);
-          else console.log(`stick ${i} opened successfully!`);
+        function openStickAsync(stick) {
+          const cancellationToken = stick.openAsync((err) => {
+            if (err) console.log("stick could not be opened!", err);
+            else console.log(`stick ${i} opened successfully!`);
+          });
+        }
+        function openStickNormally(stick) {
+          if (!stick.open()) console.log("stick not found!");
+        }
+
+        openStickAsync(stick);
+        stick.on("startup", function () {
+          stickStartup(stick, i);
         });
       }
       sticks[i] = new Ant.GarminStick2();
@@ -127,10 +148,6 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
     } else {
       createNewStick(sticks, i);
     }
-
-    sticks[i].on("startup", function () {
-      stickStartup(sticks[i], i);
-    });
   }
   for (let i = 0; i < sticks.length; i++) {
     initialiseStick(i);

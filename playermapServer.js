@@ -4,7 +4,7 @@ const socket = io("https://chess-api.buildarocket.com");
 
 let playerMap = [
   {
-    playerName: "Nakamura",
+    playerName: "Clemens",
     deviceID: 60311,
     fideID: 2016192,
   },
@@ -79,8 +79,8 @@ let playerMap = [
     fideID: 5,
   },
   {
-    playerName: "test7",
-    deviceID: 7,
+    playerName: "testMulti",
+    deviceID: 50,
     fideID: 76,
   },
 ];
