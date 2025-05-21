@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "testMultiple": "nodemon serverTestMultiple.js",
-    "playerMap": "nodemon playermapServer.js"
+    "testMultiple": "nodemon serverTestMultiple.js --ignore playerMapServer.js",
+    "playerMap": "nodemon playermapServer.js --ignore serverTestMultiple.js"
   },
   "author": "",
   "license": "ISC",
