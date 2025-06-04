@@ -17,6 +17,7 @@ if (!STICK_NUMBER) {
 }
 
 console.log("DEVICE_ID:", DEVICE_ID);
+console.log("STICK_NUMBER:", STICK_NUMBER);
 
 const socket = io("https://chess-api.buildarocket.com");
 // const socket = io("http://192.168.178.20:3000");
