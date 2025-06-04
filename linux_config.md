@@ -30,10 +30,16 @@ sudo nmcli connection down "<connection-name>" && nmcli connection up "<connecti
 sudo timedatectl set-ntp true
 sudo timedatectl status
 
-## Install node and npm
+## Install node and npm via fnm (only for development (problematic when using pm2 on startup))
 
 curl -o- https://fnm.vercel.app/install | bash
 fnm install 16
+
+## Install node and npm via apt (better for production)
+
+curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
+sudo apt-get install -y nodejs
 
 ## get project
 

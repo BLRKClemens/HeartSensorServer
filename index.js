@@ -3,8 +3,16 @@ const Ant = require("gd-ant-plus");
 require("dotenv").config();
 
 DEVICE_ID = process.env.DEVICE_ID;
+STICK_NUMBER = process.env.STICK_NUMBER;
 if (!DEVICE_ID) {
-  console.log("please put device id in .env file");
+  console.log("please put DEVICE_ID in .env file");
+  process.exit(-1);
+}
+
+if (!STICK_NUMBER) {
+  console.log(
+    "please provide STICK_NUMBER in .env file (1 stick can handle up to 8 sensors)"
+  );
   process.exit(-1);
 }
 
@@ -18,7 +26,7 @@ socket.on("connect", () => {
   socket.emit("requestPlayerMapHeartRate");
   // socket.emit("updatePlayerMapHeartRate", playerMap);
 });
-const sticks = [null, null];
+const sticks = new Array(STICK_NUMBER).fill(null);
 
 socket.on("updatePlayerMapHeartRate", (playerMap) => {
   console.log("updatePlayerMapHeartRate", playerMap);

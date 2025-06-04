@@ -2,7 +2,7 @@ const { io } = require("socket.io-client");
 const socket = io("https://chess-api.buildarocket.com");
 // const socket = io("http://localhost:3000");
 
-let playerMap = [
+/* let playerMap = [
   {
     playerName: "Clemens",
     deviceID: 60311,
@@ -79,11 +79,12 @@ let playerMap = [
     fideID: 5,
   },
   {
-    playerName: "testMulti",
-    deviceID: 50,
+    playerName: "test*",
+    deviceID: 0,
     fideID: 76,
   },
-];
+]; */
+let playerMap = [{ playerName: "*", deviceID: 0, fideID: 2016192 }];
 console.log("Number of Players: ", playerMap.length);
 
 socket.on("connect", () => {
