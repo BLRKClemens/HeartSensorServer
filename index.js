@@ -159,6 +159,7 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
     }
   }
   for (let i = 0; i < sticks.length; i++) {
+    console.log("stickslength", sticks.length);
     console.log("init stick", i);
     initialiseStick(i);
   }
