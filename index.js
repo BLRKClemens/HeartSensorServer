@@ -3,7 +3,7 @@ const Ant = require("gd-ant-plus");
 require("dotenv").config();
 
 DEVICE_ID = process.env.DEVICE_ID;
-STICK_NUMBER = process.env.STICK_NUMBER;
+STICK_NUMBER = parseInt(process.env.STICK_NUMBER);
 if (!DEVICE_ID) {
   console.log("please put DEVICE_ID in .env file");
   process.exit(-1);
@@ -159,8 +159,6 @@ socket.on("updatePlayerMapHeartRate", (playerMap) => {
     }
   }
   for (let i = 0; i < sticks.length; i++) {
-    console.log("stickslength", sticks.length);
-    console.log("init stick", i);
     initialiseStick(i);
   }
 });
