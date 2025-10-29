@@ -33,12 +33,12 @@ const playerMap = [
   {
     fideID: 2093596,
     playerName: "Niemann",
-    deviceID: 31610,
+    deviceID: 61213,
   },
   {
     fideID: 1503014,
     playerName: "Carlsen",
-    deviceID: 31621,
+    deviceID: 60311,
   },
   {
     fideID: 13300474,
@@ -53,7 +53,7 @@ const playerMap = [
   {
     fideID: 2040506,
     playerName: "Sevian",
-    deviceID: 55112,
+    deviceID: 60311,
   },
   {
     fideID: 25059530,
@@ -69,46 +69,6 @@ const playerMap = [
     fideID: 2020009,
     playerName: "Caruana",
     deviceID: 3127,
-  },
-  {
-    fideID: 3503240,
-    playerName: "Domínguez Perez",
-    deviceID: 16010,
-  },
-  {
-    fideID: 2016192,
-    playerName: "Nakamura",
-    deviceID: 9885,
-  },
-  {
-    fideID: 5202213,
-    playerName: "So",
-    deviceID: 4962,
-  },
-  {
-    fideID: 35009192,
-    playerName: "Arjun",
-    deviceID: 31619,
-  },
-  {
-    fideID: 2093596,
-    playerName: "Niemann",
-    deviceID: 55111,
-  },
-  {
-    fideID: 14205483,
-    playerName: "Sindarov",
-    deviceID: 16247,
-  },
-  {
-    fideID: 2093596,
-    playerName: "Niemann",
-    deviceID: 55930,
-  },
-  {
-    fideID: 14205483,
-    playerName: "Sindarov",
-    deviceID: 7604,
   },
 ];
 console.log("updatePlayerMapHeartRate", playerMap);
