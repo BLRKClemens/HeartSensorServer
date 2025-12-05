@@ -46,31 +46,32 @@ const playerMap = [
     deviceID: 15888,
   },
   {
-    fideID: 14204118,
-    playerName: "Abdusattorov",
-    deviceID: 31794,
+    fideID: 14205483,
+    playerName: "Sindarov",
+    deviceID: 16247,
   },
   {
-    fideID: 2040506,
-    playerName: "Sevian",
-    deviceID: 60311,
-  },
-  {
-    fideID: 25059530,
-    playerName: "Praggnanandhaa",
-    deviceID: 13945,
-  },
-  {
-    fideID: 5029465,
-    playerName: "Vidit",
-    deviceID: 35107,
+    fideID: 12539929,
+    playerName: "Parham",
+    deviceID: 4962,
   },
   {
     fideID: 2020009,
     playerName: "Caruana",
     deviceID: 3127,
   },
+  {
+    playerName: "Keymer",
+    deviceID: 31610,
+    fideID: 12940690,
+  },
+  {
+    fideID: 35009192,
+    playerName: "Arjun",
+    deviceID: 31619,
+  },
 ];
+
 console.log("updatePlayerMapHeartRate", playerMap);
 const playerNumber = playerMap.length;
 const playerNumberPerStick = Math.ceil(playerNumber / 2);
