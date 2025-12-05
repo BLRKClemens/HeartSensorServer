@@ -33,9 +33,9 @@ const playerMap = [
   {
     fideID: 2093596,
     playerName: "Niemann",
-    deviceID: 31610,
+    deviceID: "*",
   },
-  {
+  /* {
     fideID: 1503014,
     playerName: "Carlsen",
     deviceID: 31621,
@@ -69,7 +69,7 @@ const playerMap = [
     fideID: 35009192,
     playerName: "Arjun",
     deviceID: 31619,
-  },
+  }, */
 ];
 
 console.log("updatePlayerMapHeartRate", playerMap);
