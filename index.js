@@ -33,12 +33,12 @@ const playerMap = [
   {
     fideID: 2093596,
     playerName: "Niemann",
-    deviceID: 61213,
+    deviceID: 31610,
   },
   {
     fideID: 1503014,
     playerName: "Carlsen",
-    deviceID: 60311,
+    deviceID: 31621,
   },
   {
     fideID: 13300474,
