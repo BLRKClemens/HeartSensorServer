@@ -52,7 +52,7 @@ const playerMap = [
   },
   {
     fideID: 12539929,
-    playerName: "Parham",
+    playerName: "Maghsoodloo",
     deviceID: 4962,
   },
   {
@@ -61,13 +61,13 @@ const playerMap = [
     deviceID: 3127,
   },
   {
+    fideID: 12940690,
     playerName: "Keymer",
     deviceID: 31610,
-    fideID: 12940690,
   },
   {
     fideID: 35009192,
-    playerName: "Arjun",
+    playerName: "Erigaisi",
     deviceID: 31619,
   },
 ];
