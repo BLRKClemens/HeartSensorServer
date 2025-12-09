@@ -33,9 +33,9 @@ const playerMap = [
   {
     fideID: 2093596,
     playerName: "Niemann",
-    deviceID: 0, //7604,
+    deviceID: 7604,
   },
-  /* {
+  {
     fideID: 1503014,
     playerName: "Carlsen",
     deviceID: 31621,
@@ -69,8 +69,14 @@ const playerMap = [
     fideID: 35009192,
     playerName: "Erigaisi",
     deviceID: 31619,
-  }, */
+  },
 ];
+
+//backups
+/* niemann 35107 
+keymer 55112
+sindarov 15799
+*/
 
 console.log("updatePlayerMapHeartRate", playerMap);
 const playerNumber = playerMap.length;
