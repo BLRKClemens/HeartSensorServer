@@ -33,7 +33,7 @@ const playerMap = [
   {
     fideID: 2093596,
     playerName: "Niemann",
-    deviceID: 7604,
+    deviceID: 35107,
   },
   {
     fideID: 1503014,
@@ -48,7 +48,7 @@ const playerMap = [
   {
     fideID: 14205483,
     playerName: "Sindarov",
-    deviceID: 16247,
+    deviceID: 15799,
   },
   {
     fideID: 12539929,
