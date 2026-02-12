@@ -11,7 +11,7 @@ if (!DEVICE_ID) {
 
 if (!STICK_NUMBER) {
   console.log(
-    "please provide STICK_NUMBER in .env file (1 stick can handle up to 8 sensors)"
+    "please provide STICK_NUMBER in .env file (1 stick can handle up to 8 sensors)",
   );
   process.exit(-1);
 }
@@ -48,12 +48,12 @@ const playerMap = [
   {
     fideID: 14205483,
     playerName: "Sindarov",
-    deviceID: 15799,
+    deviceID: 16247,
   },
   {
-    fideID: 12539929,
-    playerName: "Maghsoodloo",
-    deviceID: 4962,
+    fideID: 14204118,
+    playerName: "Abdusattorov",
+    deviceID: 31794,
   },
   {
     fideID: 2020009,
@@ -70,6 +70,12 @@ const playerMap = [
     playerName: "Erigaisi",
     deviceID: 31619,
   },
+  {
+    fideID: 13708694,
+    playerName: "Assaubayeva",
+    deviceID: 55112,
+  },
+  { fideID: 4128125, playerName: "Kosteniuk", deviceID: 55838 },
 ];
 
 //backups
@@ -95,7 +101,7 @@ function initialiseStick(i) {
         console.log(
           player.playerName,
           hbData.DeviceID,
-          hbData.ComputedHeartRate
+          hbData.ComputedHeartRate,
         );
         const data = {
           playerData: { name: player.playerName, fideID: player.fideID },
@@ -112,12 +118,12 @@ function initialiseStick(i) {
     function attachRemainingSensors(playerMapForStick) {
       function logAttachedMessage(playerMapForStick, previousIndex, i) {
         console.log(
-          `${playerMapForStick[previousIndex].playerName} attached to slot ${previousIndex} of stick ${i}. device ID: ${playerMapForStick[previousIndex].deviceID} `
+          `${playerMapForStick[previousIndex].playerName} attached to slot ${previousIndex} of stick ${i}. device ID: ${playerMapForStick[previousIndex].deviceID} `,
         );
       }
       function addAttachedListenerToLastSensor(
         playerMapForStick,
-        previousIndex
+        previousIndex,
       ) {
         playerMapForStick[previousIndex].sensor.on("attached", () => {
           logAttachedMessage(playerMapForStick, previousIndex, i);
@@ -133,7 +139,7 @@ function initialiseStick(i) {
       });
       addAttachedListenerToLastSensor(
         playerMapForStick,
-        playerMapForStick.length - 1
+        playerMapForStick.length - 1,
       );
     }
 
