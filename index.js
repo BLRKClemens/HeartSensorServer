@@ -60,7 +60,7 @@ sindarov 15799
 
 console.log("updatePlayerMapHeartRate", playerMap);
 const playerNumber = playerMap.length;
-const playerNumberPerStick = Math.ceil(playerNumber / 2);
+const playerNumberPerStick = playerNumber;
 
 function initialiseStick(i) {
   function stickStartup(stick, i) {
