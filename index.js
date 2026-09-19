@@ -19,7 +19,7 @@ if (!STICK_NUMBER) {
 console.log("DEVICE_ID:", DEVICE_ID);
 console.log("STICK_NUMBER:", STICK_NUMBER);
 
-const socket = io("https://chess-api.buildarocket.com");
+const socket = io("http://bridge.mainframe:3001");
 // const socket = io("http://192.168.178.20:3000");
 
 socket.on("connect", () => {
@@ -32,50 +32,24 @@ console.log("sticks length", sticks.length);
 const playerMap = [
   {
     fideID: 2093596,
-    playerName: "Niemann",
-    deviceID: 35107,
+    playerName: "aster",
+    deviceID: 61433,
   },
   {
     fideID: 1503014,
-    playerName: "Carlsen",
-    deviceID: 31621,
+    playerName: "niklas",
+    deviceID: 60311,
   },
   {
     fideID: 13300474,
-    playerName: "Aronian",
-    deviceID: 15888,
+    playerName: "leon",
+    deviceID: 8868,
   },
   {
     fideID: 14205483,
-    playerName: "Sindarov",
-    deviceID: 16247,
+    playerName: "matteo",
+    deviceID: 61213,
   },
-  {
-    fideID: 14204118,
-    playerName: "Abdusattorov",
-    deviceID: 31794,
-  },
-  {
-    fideID: 2020009,
-    playerName: "Caruana",
-    deviceID: 3127,
-  },
-  {
-    fideID: 12940690,
-    playerName: "Keymer",
-    deviceID: 31610,
-  },
-  {
-    fideID: 35009192,
-    playerName: "Erigaisi",
-    deviceID: 31619,
-  },
-  {
-    fideID: 13708694,
-    playerName: "Assaubayeva",
-    deviceID: 55112,
-  },
-  { fideID: 4128125, playerName: "Kosteniuk", deviceID: 55838 },
 ];
 
 //backups
